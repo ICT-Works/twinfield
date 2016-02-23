@@ -65,7 +65,7 @@ class InvoiceMapper
         // Make an InvoiceTotals and loop through custom tags
         $invoiceTotals = new InvoiceTotals();
         foreach ($totalsTags as $tag => $method) {
-            $_tag = $responseDOM->getElementsByTagName($tag)->item(0);
+            $_tag = $responseDOM->getElementsByTagName('totals')->item(0)->getElementsByTagName($tag)->item(0);
 
             if (isset($_tag) && isset($_tag->textContent)) {
                 $invoiceTotals->$method($_tag->textContent);
